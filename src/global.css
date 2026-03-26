@@ -1,1 +1,67 @@
 @import "tailwindcss";
+
+@theme {
+    /* Global Colors */
+    --color-white: oklch(1 0 0);
+    --color-red: oklch(0.6088 0.2423 28.57);
+    --color-green: oklch(0.8405 0.233 149.16);
+
+    /* Primary Colors */
+    --color-primary-1: oklch(0.2804 0.0501 253);
+    --color-primary-2: oklch(0.7663 0.1564 60);
+    --color-primary-3: oklch(0.7865 0.1738 123.82);
+    --color-primary-4: oklch(0.6625 0.131 168.38);
+
+    /* Heading & Typography */
+    --color-heading-1: oklch(0.3116 0.0455 266.47);
+    --color-heading-2: oklch(0.2927 0.0078 264.45);
+    --color-paragraph-1: oklch(0.3211 0 0);
+    --color-paragraph-2: oklch(0.5829 0 0);
+    --color-paragraph-3: oklch(0.9013 0.0181 245.4);
+
+    /* UI Backgrounds */
+    --color-ui-bg-1: oklch(0.98 0.004 286.33);
+    --color-ui-bg-2: oklch(0.9897 0.0051 247.88);
+    --color-ui-bg-3: oklch(0.4242 0.0841 249);
+
+    /* Shapes */
+    --color-shape-1: oklch(0.8952 0.0182 245.41);
+    --color-shape-2: oklch(0.9717 0.0144 244.71);
+    --color-shape-3: oklch(0.483 0.0867 248.12);
+
+    /* Multiply layers */
+    --color-multiply-1: oklch(0.3928 0.0431 247.75);
+    --color-multiply-2: oklch(0.559 0.0726 247.96);
+    --color-multiply-3: oklch(0.4757 0.0506 248.93);
+    --color-multiply-4: oklch(0.3867 0 0);
+    --color-multiply-5: oklch(0.439 0.0312 248.54);
+}
+
+@layer utilities {
+    /* Main Headings */
+    .text-main-1 { font-size: 3.75rem; line-height: 5rem; }
+    .text-main-2 { font-size: 3.125rem; line-height: 4.125rem; }
+    .text-main-3 { font-size: 1.5rem; line-height: 3.125rem; }
+    .text-main-4 { font-size: 2.875rem; line-height: 3.375rem; }
+    .text-main-5 { font-size: 12.5rem; line-height: 12.5rem; }
+  
+    /* Headings */
+    .text-head-1 { font-size: 2.375rem; line-height: 3.375rem; }
+    .text-head-2 { font-size: 1.875rem; line-height: 2.625rem; }
+    .text-head-3 { font-size: 1.5rem; line-height: 2rem; }
+    .text-head-4 { font-size: 1.25rem; line-height: 1.875rem; }
+    .text-head-5 { font-size: 1rem; line-height: 1.625rem; }
+  
+    /* Paragraphs */
+    .text-para-1 { font-size: 1.125rem; line-height: 1.875rem; }
+    .text-para-2 { font-size: 1rem; line-height: 1.75rem; }
+    .text-para-3 { font-size: 0.875rem; line-height: 1.5rem; }
+    .text-para-4 { font-size: 0.75rem; line-height: 1.25rem; }
+    .text-para-5 { font-size: 1.5rem; line-height: 2rem; }
+    .text-para-6 { font-size: 1.25rem; line-height: 1.875rem; }
+    .text-para-italic { font-size: 1.25rem; line-height: 2rem; font-style: italic; }
+  
+    /* Buttons */
+    .text-btn-1 { font-size: 1.125rem; line-height: 1.875rem; }
+    .text-btn-2 { font-size: 0.875rem; line-height: 1.5rem; }
+}
