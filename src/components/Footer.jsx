@@ -66,7 +66,7 @@ export default function Footer() {
             <div className="bg-white pt-64 md:pt-48 pb-16 px-6">
                 <div className="max-w-7xl mx-auto">
                     <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
-                        <div className="md:col-start-6 md:col-span-5 text-para-2 md:-mt-30">
+                        <div className="md:col-start-6 md:col-span-5 text-para-2 md:-mt-28">
                             <p className="text-xs uppercase tracking-widest text-slate-400">Medlem af</p>
                             <p className="text-4xl font-black text-slate-400 tracking-tighter leading-none mb-1">DMS</p>
                             <p className="text-xs text-slate-400">Dansk Mægler Sammenslutning</p>
@@ -91,7 +91,7 @@ function ContactItem({ Icon, label, value }) {
             </div>
             <div>
                 <p className="text-xs text-slate-400">{label}</p>
-                <p className="font-bold text-primary-1 uppercase tracking-tight">{value}</p>
+                <p className="font-bold text-paragraph-1 text-para-1 tracking-tight">{value}</p>
             </div>
         </div>
     );

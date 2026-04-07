@@ -64,4 +64,28 @@
     /* Buttons */
     .text-btn-1 { font-size: 1.125rem; line-height: 1.875rem; }
     .text-btn-2 { font-size: 0.875rem; line-height: 1.5rem; }
+
+
+
+
+    .grid-areas-hero {
+        grid-template-areas: "hero";
+        grid-template-rows: 500px;
+        grid-template-columns: 1fr;
+    }
+
+    .area-hero { grid-area: hero; }
+
+    /* Darkens the image so text is readable */
+    .grid-areas-hero figure::after {
+        content: "";
+        display: block;
+        inset: 0;
+        position: absolute;
+        background: rgba(0, 0, 0, 0.35);
+    }
+
+    .grid-areas-hero figure {
+        position: relative;
+    }
 }

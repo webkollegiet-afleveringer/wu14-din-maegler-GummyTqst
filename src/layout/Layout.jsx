@@ -17,9 +17,7 @@ export default function RootLayout() {
       )}
 
       <main className="flex-1 w-full">
-        <div className="max-w-7xl mx-auto px-6">
           <Outlet />
-        </div>
       </main>
 
       <Footer />
