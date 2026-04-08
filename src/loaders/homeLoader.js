@@ -1,14 +1,13 @@
 import { propertyAPI } from '../api/properties';
+import { agentAPI } from '../api/agents';
 
 export async function homeLoader() {
   try {
     // We fetch homes and agents concurrently for better performance
-    const [homes, agentsResponse] = await Promise.all([
+    const [homes, agents] = await Promise.all([
       propertyAPI.getHomes({ _limit: 4 }), // Only get 4 for the front page
-      fetch('https://dinmaegler.onrender.com/agents')
+      agentAPI.getAgents({ _limit: 3 }) // Only get 3 for the front page
     ]);
-
-    const agents = await agentsResponse.json();
 
     console.log('Loaded homes:', homes);
     console.log('Loaded agents:', agents);
