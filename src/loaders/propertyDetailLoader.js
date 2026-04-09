@@ -1,12 +1,14 @@
+import { propertyAPI } from '../api/properties';
+
 export async function propertyDetailLoader({ params }) {
-    const { id } = params;
+  try {
+    const property = await propertyAPI.getHomeById(params.id);
     
-    const response = await fetch(`https://dinmaegler.onrender.com/homes/${id}`);
+    console.log('Loaded property:', property);
     
-    if (!response.ok) {
-      throw new Error('Failed to fetch property details');
-    }
-    
-    const property = await response.json();
     return { property };
+  } catch (error) {
+    console.error('Error loading property:', error);
+    throw new Error('Could not load property details');
+  }
 }

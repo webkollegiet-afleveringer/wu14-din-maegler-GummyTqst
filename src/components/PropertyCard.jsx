@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 export default function PropertyCard({ home }) {
     // Format price with dots (e.g., 4.567.890)
     const formattedPrice = new Intl.NumberFormat('da-DK').format(home.price);
@@ -13,8 +15,7 @@ export default function PropertyCard({ home }) {
     }
   
     return (
-        <div className="w-full mx-auto px-4">
-
+        <Link to={`/properties/${home.id}`} className="w-full mx-auto px-4 block">
             <div className="bg-white rounded-sm shadow-sm overflow-hidden flex flex-col">
                 <img src={home.images[0].url} alt={home.address1} className="w-full h-64 object-cover" />
                 
@@ -49,6 +50,6 @@ export default function PropertyCard({ home }) {
                     </div>
                 </div>
             </div>
-        </div>
+        </Link>
     );
   };
