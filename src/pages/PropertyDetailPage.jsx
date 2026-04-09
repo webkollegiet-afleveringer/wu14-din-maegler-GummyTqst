@@ -90,7 +90,9 @@ export default function PropertyDetailPage() {
 
                     <section className="flex-1">
                         <h3 className="text-heading-2 text-head-3 font-bold mb-4">Ansvarlig mægler</h3>
-                        <AgentCard agent={property.agent} />
+                        <div className="border border-gray-200 p-4 mb-6">
+                            <AgentCard agent={property.agent} />
+                        </div>
                     </section>
                 </div>
             </main>

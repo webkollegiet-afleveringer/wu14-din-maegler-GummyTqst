@@ -7,7 +7,7 @@ import paperPlaneIcon from "../assets/svg/paper-plane.svg";
 
 export default function AgentCard({ agent }) {
     return (
-        <div className="border border-gray-200 p-8 flex flex-col md:flex-row gap-8 items-start bg-white">
+        <div className="p-8 flex flex-col md:flex-row gap-8 items-start bg-white">
             <div className="relative w-full md:w-45 aspect-4/5 shrink-0 overflow-hidden">
                 <img 
                     src={agent.image.url} 
