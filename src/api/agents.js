@@ -16,3 +16,5 @@ export const agentAPI = {
         return await response.json();
     },
 };
+
+export default agentAPI;

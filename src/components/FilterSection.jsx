@@ -15,7 +15,6 @@ export default function FilterSection({ availableTypes }) {
         // Map the range to the API's price_lte parameter
         formData.append("maxPrice", newRange);
         
-        // This triggers the propertiesLoader to re-run with new params
         submit(formData, { method: "get" });
     };
 
