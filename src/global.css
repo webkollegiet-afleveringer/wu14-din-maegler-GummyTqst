@@ -88,4 +88,14 @@
     .grid-areas-hero figure {
         position: relative;
     }
+
+    .icon-white {
+        /* This converts black to white */
+        filter: brightness(0) invert(1);
+    }
+
+    .size-24 {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
 }
