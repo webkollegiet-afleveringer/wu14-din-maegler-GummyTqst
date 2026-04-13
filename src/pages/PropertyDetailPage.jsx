@@ -1,16 +1,47 @@
+import { useState } from "react";
 import { useLoaderData } from "react-router"
 import AgentCard from "../components/ContactAgent";
+import PropertyOverlay from "../components/PropertyOverlay";
+import { useFavoritesStore } from "../store/useFavoritesStore";
+import { useAuthStore } from "../store/useAuthStore";
 
 
 import pictureIcon from "../assets/svg/picture.svg";
 import plansketchIcon from "../assets/svg/plansketch.svg";
 import locationIcon from "../assets/svg/location.svg";
-import heartIcon from "../assets/svg/heart.svg";
 
 export default function PropertyDetailPage() {
     const { property } = useLoaderData();
+    const [overlayOpen, setOverlayOpen] = useState(false);
+    const [overlayMode, setOverlayMode] = useState("gallery");
+    const [toast, setToast] = useState(null);
+    const { favorites, addFavorite, removeFavorite } = useFavoritesStore();
+    const { token } = useAuthStore();
+    
+    const isFavorite = favorites.some(f => f.id === property.id);
+    const isLoggedIn = !!token;
 
     const formatDKK = (num) => new Intl.NumberFormat('da-DK').format(num);
+
+    function handleFavoriteClick(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        if (!isLoggedIn) {
+            alert("Du skal være logget ind for at tilføje favoritter");
+            return;
+        }
+
+        if (isFavorite) {
+            removeFavorite(property.id);
+            setToast("Fjernet fra favoritter");
+        } else {
+            addFavorite(property);
+            setToast("Tilføjet til favoritter");
+        }
+        
+        setTimeout(() => setToast(null), 3000);
+    }
 
     const statGroups = [
         [
@@ -47,17 +78,19 @@ export default function PropertyDetailPage() {
                     </div>
                     <div className="flex gap-10">
                         {/* Icons */}
-                        <figure>
+                        <figure className="cursor-pointer" onClick={() => { setOverlayMode("gallery"); setOverlayOpen(true); }}>
                             <img src={pictureIcon} alt="Picture" />
                         </figure>
-                        <figure>
+                        <figure className="cursor-pointer" onClick={() => { setOverlayMode("floorplan"); setOverlayOpen(true); }}>
                             <img src={plansketchIcon} alt="Plan tegning" />
                         </figure>
-                        <figure>
+                        <figure className="cursor-pointer" onClick={() => { setOverlayMode("map"); setOverlayOpen(true); }}>
                             <img src={locationIcon} alt="Location" />
                         </figure>
-                        <figure>
-                            <img src={heartIcon} alt="Favorites" />
+                        <figure className="cursor-pointer" onClick={handleFavoriteClick}>
+                            <svg width="41" height="38" viewBox="0 0 41 38" fill={isFavorite ? "#E63946" : "none"} xmlns="http://www.w3.org/2000/svg">
+                                <path d="M30.1556 1C23.6046 1 20.3755 7.45816 20.3755 7.45816C20.3755 7.45816 17.1464 1 10.5954 1C5.27149 1 1.05552 5.45411 1.00103 10.769C0.890032 21.8013 9.75285 29.647 19.4673 36.2404C19.7351 36.4226 20.0516 36.52 20.3755 36.52C20.6994 36.52 21.0159 36.4226 21.2837 36.2404C30.9972 29.647 39.86 21.8013 39.75 10.769C39.6955 5.45411 35.4795 1 30.1556 1V1Z" stroke={isFavorite ? "#E63946" : "#7B7B7B"} stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
                         </figure>
                     </div>
                     <div className="text-primary-1 font-bold text-head-2">
@@ -96,6 +129,20 @@ export default function PropertyDetailPage() {
                     </section>
                 </div>
             </main>
+
+            <PropertyOverlay 
+                property={property} 
+                isOpen={overlayOpen} 
+                onClose={() => setOverlayOpen(false)} 
+                mode={overlayMode}
+                setMode={setOverlayMode}
+            />
+
+            {toast && (
+                <div className="fixed bottom-8 left-1/2 -translate-x-1/2 bg-primary-1 text-white px-6 py-3 rounded-lg shadow-lg z-50">
+                    {toast}
+                </div>
+            )}
         </section>
     )
 }
