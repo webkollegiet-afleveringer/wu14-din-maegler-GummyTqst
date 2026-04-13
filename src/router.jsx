@@ -19,7 +19,7 @@ import { propertyDetailLoader } from "./loaders/propertyDetailLoader";
 import { agentsLoader } from "./loaders/agentsLoader";
 import { agentDetailLoader } from "./loaders/agentDetailLoader";
 
-// import { useAuthStore } from "./store/useAuthStore";
+import { useAuthStore } from "./store/useAuthStore";
 
 // Called before rendering any auth-gated route.
 // Reads token directly from Zustand state (no hook — this runs outside React).
