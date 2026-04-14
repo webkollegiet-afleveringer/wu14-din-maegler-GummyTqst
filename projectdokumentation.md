@@ -32,28 +32,12 @@ Brugte Tailwind fordi jeg gerne vil prøve et nyt css "framework" og så os ford
 
 ---
 
-## Argumentation for valg
-
-Forklar hvorfor du har truffet dine tekniske og designmæssige valg.
-
-**Overvej fx:**
-
-* Hvorfor valgte du netop dette framework?
-* Hvorfor denne struktur?
-* Hvorfor denne styling?
-
-**Din beskrivelse:**
-
->
-
----
-
 ## Egen vurdering
 
 Syntes umeldbart min process er gået meget fint, har ikke haft nogle særlige store udfordringer.
 
 ### Hvad gik godt?
-
+Syntes mer eller mindre at hele processen gik godt, men nogle små bump på vejen
 >
 
 ### Hvad gik mindre godt?
@@ -61,5 +45,5 @@ Havdet lidt problemer på forsiden med det der billede hvor der skal være en ra
 >
 
 ### Hvad ville du gøre anderledes næste gang?
-
+Hmm, måske prøve at udfordre mig selv lidt på forskellige tech stacks
 >
