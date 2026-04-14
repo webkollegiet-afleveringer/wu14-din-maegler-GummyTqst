@@ -68,15 +68,15 @@ export default function PropertyDetailPage() {
     return (
         <section>
             <header>
-                <img src={property.images[0].url} alt={property.adress1} className="w-full h-150 object-cover" />
+                <img src={property.images[0].url} alt={property.adress1} className="w-full h-48 sm:h-64 md:h-80 lg:h-150 object-cover" />
             </header>
-            <main className="max-w-7xl mx-auto p-4">
-                <section className="flex justify-between items-center mb-6">
+            <main className="max-w-7xl mx-auto p-3 sm:p-4">
+                <section className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
                     <div className="text-head-4 font-semibold">
-                        <h1 className="text-heading-2">{property.adress1} {property.adress2 ? `• ${property.adress2}` : ''}</h1>
-                        <p className="text-primary-1">{property.postalcode} {property.city}</p>
+                        <h1 className="text-lg sm:text-xl md:text-heading-2">{property.adress1} {property.adress2 ? `• ${property.adress2}` : ''}</h1>
+                        <p className="text-primary-1 text-sm sm:text-base">{property.postalcode} {property.city}</p>
                     </div>
-                    <div className="flex gap-10">
+                    <div className="flex gap-6 sm:gap-10">
                         {/* Icons */}
                         <figure className="cursor-pointer" onClick={() => { setOverlayMode("gallery"); setOverlayOpen(true); }}>
                             <img src={pictureIcon} alt="Picture" />
@@ -93,18 +93,18 @@ export default function PropertyDetailPage() {
                             </svg>
                         </figure>
                     </div>
-                    <div className="text-primary-1 font-bold text-head-2">
+                    <div className="text-primary-1 font-bold text-lg sm:text-xl md:text-head-2">
                         <h2>Kr. {formatDKK(property.price)}</h2>
                     </div>
                 </section>
 
-                <hr className="text-paragraph-2 mb-6" />
+                <hr className="text-paragraph-2 my-4 sm:mb-6" />
 
-                <section className="grid grid-cols-1 md:grid-cols-3 gap-x-16 gap-y-2 mb-12">
+                <section className="grid grid-cols-1 md:grid-cols-3 gap-x-8 md:gap-x-16 gap-y-2 mb-8 sm:mb-12">
                     {statGroups.map((group, groupIndex) => (
                         <div key={groupIndex} className="space-y-2">
                             {group.map((stat, statIndex) => (
-                                <div key={statIndex} className="flex justify-between text-para-2">
+                                <div key={statIndex} className="flex justify-between text-para-2 text-sm sm:text-base">
                                     <span>{stat.label}</span>
                                     <span>{stat.value}</span>
                                 </div>
@@ -113,17 +113,17 @@ export default function PropertyDetailPage() {
                     ))}
                 </section>
 
-                <div className="flex flex-col lg:flex-row gap-12 pt-10">
+                <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 pt-6 sm:pt-10">
                     <div className="flex-1"> 
-                        <h3 className="text-heading-2 text-head-3 font-bold mb-4">Beskrivelse</h3>
-                        <p className="text-paragraph-1 text-para-1 whitespace-pre-line leading-relaxed">
+                        <h3 className="text-head-3 sm:text-heading-2 font-bold mb-3 sm:mb-4 text-lg sm:text-xl">Beskrivelse</h3>
+                        <p className="text-paragraph-1 text-para-1 whitespace-pre-line leading-relaxed text-sm sm:text-base">
                             {property.description}
                         </p>
                     </div>
 
                     <section className="flex-1">
-                        <h3 className="text-heading-2 text-head-3 font-bold mb-4">Ansvarlig mægler</h3>
-                        <div className="border border-gray-200 p-4 mb-6">
+                        <h3 className="text-head-3 sm:text-heading-2 font-bold mb-3 sm:mb-4 text-lg sm:text-xl">Ansvarlig mægler</h3>
+                        <div className="border border-gray-200 p-3 sm:p-4 mb-4 sm:mb-6">
                             <AgentCard agent={property.agent} />
                         </div>
                     </section>

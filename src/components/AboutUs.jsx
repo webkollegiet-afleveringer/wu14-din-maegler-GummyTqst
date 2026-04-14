@@ -2,11 +2,11 @@ import FamilyImg from "../assets/family.png"
 
 export default function AboutUs() {
     return (
-        <div className="w-full mx-auto px-4">
-            <section className="p-8 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="relative w-full max-w-md">
+        <div className="w-full mx-auto px-4 overflow-hidden">
+            <section className="p-4 sm:p-8 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+            <div className="relative w-full max-w-md mx-auto">
 
-                <div className="absolute top-6 left-6 w-full h-full border-12 border-primary-1 z-1"></div>
+                <div className="absolute top-4 sm:top-6 left-4 sm:left-6 w-full h-full border-8 sm:border-12 border-primary-1 z-1"></div>
 
                 <img 
                     src={FamilyImg} 
@@ -14,22 +14,22 @@ export default function AboutUs() {
                     className="w-full relative"
                 />
 
-                <div className="absolute bottom-0 right-0 bg-slate-900 text-white p-8 md:translate-x-4 md:translate-y-4 text-center">
-                    <p className="text-4xl font-bold">38+</p>
-                    <p className="text-sm">års mægler-erfaring</p>
+                <div className="absolute bottom-0 right-0 bg-slate-900 text-white p-4 sm:p-8 md:translate-x-4 md:translate-y-4 text-center">
+                    <p className="text-2xl sm:text-4xl font-bold">38+</p>
+                    <p className="text-xs sm:text-sm">års mægler-erfaring</p>
                 </div>
             </div>
 
-            <div className="flex flex-col gap-6">
-                <h2 className="text-head-1 text-heading-1 font-bold">
+            <div className="flex flex-col gap-4 sm:gap-6">
+                <h2 className="text-head-1 text-heading-1 font-bold text-xl sm:text-2xl md:text-3xl">
                     Vi har fulgt danskerne hjem <br /> i snart 4 årtier
                 </h2>
                     
-                <h4 className="text-head-4 text-heading-1 font-bold">
+                <h4 className="text-head-4 text-heading-1 font-bold text-base sm:text-lg">
                     Det synes vi siger noget om os!
                 </h4>
                     
-                <div className="space-y-6 text-paragraph-1 text-para-2 max-w-lg">
+                <div className="space-y-4 sm:space-y-6 text-paragraph-1 text-para-2 max-w-lg text-sm sm:text-base">
                     <p>
                         It is a long established fact that a reader will be distracted by the
                         readable content of a page when looking at its layout. The point of
@@ -41,67 +41,67 @@ export default function AboutUs() {
                     </p>
                 </div>
 
-                <div className="flex gap-12 mt-4">
-                    <div className="flex items-center gap-4">
-                        <div className="bg-shape-2 p-5">
+                <div className="flex gap-6 sm:gap-12 mt-2 sm:mt-4">
+                    <div className="flex items-center gap-3 sm:gap-4">
+                        <div className="bg-shape-2 p-3 sm:p-5">
                             <HouseIcon />
                         </div>
                         <div>
-                            <p className="text-2xl font-bold text-primary-1">4829</p>
-                            <p className="text-gray-500 text-sm">boliger solgt</p>
+                            <p className="text-xl sm:text-2xl font-bold text-primary-1">4829</p>
+                            <p className="text-gray-500 text-xs sm:text-sm">boliger solgt</p>
                         </div>
                     </div>
 
-                    <div className="flex items-center gap-4">
-                        <div className="bg-shape-2 p-5">
+                    <div className="flex items-center gap-3 sm:gap-4">
+                        <div className="bg-shape-2 p-3 sm:p-5">
                             <HomeIcon />
                         </div>
                         <div>
-                            <p className="text-2xl font-bold text-primary-1">158</p>
-                            <p className="text-gray-500 text-sm">boliger til salg</p>
+                            <p className="text-xl sm:text-2xl font-bold text-primary-1">158</p>
+                            <p className="text-gray-500 text-xs sm:text-sm">boliger til salg</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <hr className="border-shape-1 mt-8" />
+        <hr className="border-shape-1 mt-6 sm:mt-8" />
 
-        <section className="py-20 grid grid-cols-1 md:grid-cols-3 gap-10">
+        <section className="py-8 sm:py-20 grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-10">
                 {/* Feature 1 */}
-                <div className="flex gap-5">
-                    <div className="bg-shape-2 p-5 h-fit shrink-0">
+                <div className="flex gap-4">
+                    <div className="bg-shape-2 p-4 sm:p-5 h-fit shrink-0">
                         <PropertyIcon />
                     </div>
                     <div>
-                        <h3 className="text-head-4 text-heading-1 font-bold mb-3">Bestil et salgstjek</h3>
-                        <p className="text-para-2 text-paragraph-2">
+                        <h3 className="text-head-4 text-heading-1 font-bold mb-2 sm:mb-3 text-base sm:text-lg">Bestil et salgstjek</h3>
+                        <p className="text-para-2 text-paragraph-2 text-sm">
                             Med et Din Mægler Salgstjek bliver du opdateret på værdien af din bolig.
                         </p>
                     </div>
                 </div>
 
                 {/* Feature 2 */}
-                <div className="flex gap-5">
-                    <div className="bg-shape-2 p-5 h-fit shrink-0">
+                <div className="flex gap-4">
+                    <div className="bg-shape-2 p-4 sm:p-5 h-fit shrink-0">
                         <MapIcon />
                     </div>
                     <div>
-                        <h3 className="text-head-4 text-heading-1 font-bold mb-3">74 butikker</h3>
-                        <p className="text-para-2 text-paragraph-2">
+                        <h3 className="text-head-4 text-heading-1 font-bold mb-2 sm:mb-3 text-base sm:text-lg">74 butikker</h3>
+                        <p className="text-para-2 text-paragraph-2 text-sm">
                             Hos Din Mægler er din bolig til salg i alle vores 74 butikker, som er fordelt rundt om i Danmark.
                         </p>
                     </div>
                 </div>
 
                 {/* Feature 3 */}
-                <div className="flex gap-5">
-                    <div className="bg-shape-2 p-5 h-fit shrink-0">
+                <div className="flex gap-4">
+                    <div className="bg-shape-2 p-4 sm:p-5 h-fit shrink-0">
                         <CustomerIcon />
                     </div>
                     <div>
-                        <h3 className="text-head-4 text-heading-1 font-bold mb-3">Tilmeld køberkartotek</h3>
-                        <p className="text-para-2 text-paragraph-2">
+                        <h3 className="text-head-4 text-heading-1 font-bold mb-2 sm:mb-3 text-base sm:text-lg">Tilmeld køberkartotek</h3>
+                        <p className="text-para-2 text-paragraph-2 text-sm">
                             Når du er tilmeldt vores køberkartotek, bliver du kontaktet inden en ny bolig bliver annonceret.
                         </p>
                     </div>

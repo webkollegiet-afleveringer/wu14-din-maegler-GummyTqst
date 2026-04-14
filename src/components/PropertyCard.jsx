@@ -1,7 +1,6 @@
 import { Link } from "react-router";
 
 export default function PropertyCard({ home }) {
-    // Format price with dots (e.g., 4.567.890)
     const formattedPrice = new Intl.NumberFormat('da-DK').format(home.price);
     const formattedCost = new Intl.NumberFormat('da-DK').format(home.cost);
 
@@ -15,36 +14,36 @@ export default function PropertyCard({ home }) {
     }
   
     return (
-        <Link to={`/properties/${home.id}`} className="w-full mx-auto px-4 block">
+        <Link to={`/properties/${home.id}`} className="w-full mx-auto px-2 sm:px-4 block">
             <div className="bg-white rounded-sm shadow-sm overflow-hidden flex flex-col">
-                <img src={home.images[0].url} alt={home.address1} className="w-full h-64 object-cover" />
+                <img src={home.images[0].url} alt={home.address1} className="w-full h-48 sm:h-64 object-cover" />
                 
-                <div className="p-6 flex flex-col grow">
-                    <h3 className="text-head-4 font-bold text-heading-1">
+                <div className="p-4 sm:p-6 flex flex-col grow">
+                    <h3 className="text-head-4 font-bold text-heading-1 text-base sm:text-lg">
                         {home.adress1} {home.adress2 ? `• ${home.adress2}` : ''}
                     </h3>
-                    <p className="text-para-3 text-paragraph-2 mt-1 mb-4">{home.postalcode} {home.city}</p>
+                    <p className="text-para-3 text-paragraph-2 mt-1 mb-3 sm:mb-4 text-sm">{home.postalcode} {home.city}</p>
                 
-                    <p className="text-para-2 text-paragraph-1 mb-4">
+                    <p className="text-para-2 text-paragraph-1 mb-3 sm:mb-4 text-sm">
                         <span className="font-bold">{home.type}</span>
                         <span className="mx-1 font-normal text-paragraph-2">•</span>
                         Ejerudgift: {formattedCost} kr
                     </p>
 
-                    <hr className="border-shape-1 mt-auto mb-4" />
+                    <hr className="border-shape-1 mt-auto mb-3 sm:mb-4" />
 
                     <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-4">
-                            <span className={`w-7 h-7 flex items-center justify-center text-white font-bold text-para-4 ${getEnergyLabelColor(home.energylabel)}`}>
+                        <div className="flex items-center gap-2 sm:gap-4">
+                            <span className={`w-6 sm:w-7 h-6 sm:h-7 flex items-center justify-center text-white font-bold text-xs sm:text-sm ${getEnergyLabelColor(home.energylabel)}`}>
                                 {home.energylabel}
                             </span>
 
-                            <span className="text-paragraph-2 text-para-3">
+                            <span className="text-paragraph-2 text-para-3 text-xs sm:text-sm">
                                 {home.rooms} værelser • {home.livingspace} m²
                             </span>
                         </div>
 
-                        <div className="text-head-4 font-bold text-heading-1">
+                        <div className="text-head-4 font-bold text-heading-1 text-sm sm:text-base">
                             Kr. {formattedPrice}
                         </div>
                     </div>

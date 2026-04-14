@@ -60,7 +60,7 @@ export default function PropertyOverlay({ property, isOpen, onClose, mode }) {
                 {mode === "map" && property.lat && property.long && (
                     <iframe
                         width="100%"
-                        height="70vh"
+                        height="100%"
                         style={{ border: 0 }}
                         loading="lazy"
                         allowFullScreen

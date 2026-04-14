@@ -72,37 +72,37 @@ export default function HomePage() {
                 </div>
             </section>
 
-            <section className="w-full bg-primary-1 py-16 px-6 overflow-hidden">
-                <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
+            <section className="w-full bg-primary-1 py-12 sm:py-16 px-4 sm:px-6 overflow-hidden">
+                <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
                     {/* Left */}
-                    <div className="max-w-lg text-white">
-                        <h2 className="text-head-1 mb-6">
+                    <div className="max-w-lg text-white text-center md:text-left">
+                        <h2 className="text-xl sm:text-2xl md:text-head-1 mb-4 sm:mb-6">
                             Hold dig opdateret <br />
                             på salgsprocessen
                         </h2>
-                        <p className="text-para-1 mb-8">
+                        <p className="text-sm sm:text-base mb-6 sm:mb-8">
                             Når du sælger din bolig hos Din Mægler, kommunikerer du nemt med den
                             ansvarlige mægler eller butik med vores app. Her kan du også se statistik på
                             interessen for din bolig i alle vores salgskanaler
                         </p>
-                        <div className="flex flex-wrap gap-4">
-                            <a href="#" className="flex items-center gap-2 border border-white text-primary-1 px-5 py-3 bg-white">
-                                <FaGooglePlay size={24} />
+                        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:justify-start">
+                            <a href="#" className="flex items-center justify-center gap-2 border border-white text-primary-1 px-4 sm:px-5 py-2 sm:py-3 bg-white text-sm">
+                                <FaGooglePlay size={20} />
                                 <span className="font-medium">Google Play</span>
                             </a>
-                            <a href="#" className="flex items-center gap-2 border border-white text-white px-5 py-3">
-                                <FaApple size={24} />
+                            <a href="#" className="flex items-center justify-center gap-2 border border-white text-white px-4 sm:px-5 py-2 sm:py-3 text-sm">
+                                <FaApple size={20} />
                                 <span className="font-medium">App Store</span>
                             </a>
                         </div>
                     </div>
                     
                     {/* Right */}
-                    <div className="relative shrink-0 w-full md:w-auto flex items-end">
+                    <div className="relative shrink-0 w-full md:w-auto flex items-end justify-center">
                         <img 
                             src={iphone} 
                             alt="Picture of iphones" 
-                            className="block w-125 md:w-150 max-w-none" 
+                            className="w-48 sm:w-64 md:w-80 lg:w-125 max-w-none" 
                         />
                     </div>
                 </div>

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { NavLink, useNavigate } from "react-router";
 import { useAuthStore } from "../store/useAuthStore";
 
@@ -11,6 +12,7 @@ export default function Navbar() {
   const { user, token, logout } = useAuthStore();
   const navigate = useNavigate();
   const isLoggedIn = !!token;
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   function handleLogout() {
     logout();
@@ -20,9 +22,7 @@ export default function Navbar() {
   return (
     <header>
       {/* ── Top bar: dark navy, contact + login ── */}
-      <div
-        className="w-full bg-primary-1"
-      >
+      <div className="w-full bg-primary-1 hidden md:block">
         <div className="max-w-7xl mx-auto px-6 h-11 flex items-center justify-between">
           {/* Contact info */}
           <div className="flex items-center gap-6">
@@ -31,21 +31,21 @@ export default function Navbar() {
               className="flex items-center gap-2 text-paragraph-3 text-para-3 transition-opacity hover:opacity-75"
             >
               <SendIcon />
-              4000@dinmaegler.com
+              <span className="hidden lg:inline">4000@dinmaegler.com</span>
             </a>
             <a
               href="tel:+4570704000"
               className="flex items-center gap-2 text-paragraph-3 text-para-3 transition-opacity hover:opacity-75"
             >
               <PhoneIcon />
-              +45 7070 4000
+              <span className="hidden lg:inline">+45 7070 4000</span>
             </a>
           </div>
 
           {/* Login / Logout */}
           {isLoggedIn ? (
             <div className="flex items-center gap-3 text-paragraph-3 text-para-3 opacity-[.6]">
-              <span>
+              <span className="hidden sm:inline">
                 {user?.name ?? user?.email}
               </span>
               <button
@@ -53,7 +53,7 @@ export default function Navbar() {
                 className="flex items-center gap-2 text-paragraph-3 text-para-3 transition-opacity hover:opacity-75"
               >
                 <UserIcon />
-                Log ud
+                <span className="hidden lg:inline">Log ud</span>
               </button>
             </div>
           ) : (
@@ -62,7 +62,7 @@ export default function Navbar() {
               className="flex items-center gap-2 text-paragraph-3 text-para-3 transition-opacity hover:opacity-75"
             >
               <UserIcon />
-              Log ind
+              <span className="hidden lg:inline">Log ind</span>
             </NavLink>
           )}
         </div>
@@ -78,12 +78,12 @@ export default function Navbar() {
             aria-label="Din Mægler — gå til forsiden"
           >
             <span className="text-heading-1 text-para-3 font-bold tracking-[0.08em]">
-                <HouseLogo />
+              <HouseLogo />
             </span>
           </NavLink>
 
-          {/* Nav links */}
-          <nav aria-label="Primær navigation">
+          {/* Desktop Nav links */}
+          <nav aria-label="Primær navigation" className="hidden md:flex">
             <ul className="flex items-center gap-1" role="list">
               {NAV_LINKS.map(({ to, label }) => (
                 <li key={to}>
@@ -121,8 +121,96 @@ export default function Navbar() {
               )}
             </ul>
           </nav>
+
+          {/* Mobile menu button */}
+          <button
+            className="md:hidden p-2"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              {mobileMenuOpen ? (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              )}
+            </svg>
+          </button>
         </div>
       </div>
+
+      {/* Mobile menu */}
+      {mobileMenuOpen && (
+        <div className="md:hidden bg-white border-b border-shape-1">
+          <nav aria-label="Mobile navigation" className="px-6 py-4">
+            <ul className="flex flex-col gap-2" role="list">
+              {NAV_LINKS.map(({ to, label }) => (
+                <li key={to}>
+                  <NavLink
+                    to={to}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={({ isActive }) =>
+                      [
+                        "block px-4 py-2 rounded transition-colors",
+                        isActive
+                          ? "font-semibold text-heading-1 bg-primary-1/10"
+                          : "text-paragraph-1 hover:bg-gray-100",
+                      ].join(" ")
+                    }
+                  >
+                    {label}
+                  </NavLink>
+                </li>
+              ))}
+
+              {isLoggedIn && (
+                <li>
+                  <NavLink
+                    to="/favorites"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={({ isActive }) =>
+                      [
+                        "block px-4 py-2 rounded transition-colors",
+                        isActive ? "font-semibold text-heading-1 bg-primary-1/10" : "text-paragraph-1 hover:bg-gray-100",
+                      ].join(" ")
+                    }
+                  >
+                    Mine favoritter
+                  </NavLink>
+                </li>
+              )}
+
+              <hr className="my-2 border-shape-1" />
+
+              {isLoggedIn ? (
+                <>
+                  <li className="px-4 py-2 text-sm text-gray-500">
+                    Logget ind som: {user?.name ?? user?.email}
+                  </li>
+                  <li>
+                    <button
+                      onClick={() => { handleLogout(); setMobileMenuOpen(false); }}
+                      className="block w-full text-left px-4 py-2 rounded text-paragraph-1 hover:bg-gray-100"
+                    >
+                      Log ud
+                    </button>
+                  </li>
+                </>
+              ) : (
+                <li>
+                  <NavLink
+                    to="/login"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="block px-4 py-2 rounded text-paragraph-1 hover:bg-gray-100"
+                  >
+                    Log ind
+                  </NavLink>
+                </li>
+              )}
+            </ul>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }

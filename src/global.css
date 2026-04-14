@@ -70,11 +70,17 @@
 
     .grid-areas-hero {
         grid-template-areas: "hero";
-        grid-template-rows: 500px;
+        grid-template-rows: minmax(400px, auto);
         grid-template-columns: 1fr;
     }
 
     .area-hero { grid-area: hero; }
+
+    @media (min-width: 768px) {
+        .grid-areas-hero {
+            grid-template-rows: 500px;
+        }
+    }
 
     /* Darkens the image so text is readable */
     .grid-areas-hero figure::after {

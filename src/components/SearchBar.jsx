@@ -23,27 +23,27 @@ export default function SearchBar() {
             />
             </figure>
     
-            <div className="area-hero flex flex-col items-center justify-center gap-6 px-4 z-10">
-            <h1 className="text-main-2 font-bold text-white drop-shadow-md">
+            <div className="area-hero flex flex-col items-center justify-center gap-4 sm:gap-6 px-4 z-10">
+            <h1 className="text-main-2 font-bold text-white drop-shadow-md text-center text-2xl sm:text-3xl md:text-4xl">
                 Søg efter din drømmebolig
             </h1>
     
-            <div className="bg-white p-6 w-full max-w-4xl">
-                <p className="text-head-4 font-semibold text-heading-2 mb-1">
+            <div className="bg-white p-4 sm:p-6 w-full max-w-4xl">
+                <p className="text-head-4 font-semibold text-heading-2 mb-1 text-sm sm:text-base">
                     Søg blandt 158 boliger til salg i 74 butikker
                 </p>
                 <div className="w-10 h-0.75 bg-primary-1 mb-4" />
-                <p className="text-para-2 text-paragraph-1 mb-2">
+                <p className="text-para-2 text-paragraph-1 mb-2 text-sm">
                     Hvad skal din næste bolig indeholde
                 </p>
-                <form onSubmit={handleSearch} className="flex gap-2">
+                <form onSubmit={handleSearch} className="flex flex-col sm:flex-row gap-2">
                 <div className="flex-1 relative">
                     <input
                         type="text"
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                         placeholder="Søg på fx. glaskeramisk komfur, bryggers, kælder eller lignende"
-                        className="w-full border border-shape-1 rounded-sm px-3 py-2 text-para-2 text-paragraph-2 focus:outline-none focus:ring-2 focus:ring-primary-1"
+                        className="w-full border border-shape-1 rounded-sm px-3 py-2 text-para-2 text-paragraph-2 focus:outline-none focus:ring-2 focus:ring-primary-1 text-sm sm:text-base"
                     />
                     {searchQuery && (
                         <button
@@ -55,7 +55,7 @@ export default function SearchBar() {
                         </button>
                     )}
                 </div>
-                <button type="submit" className="bg-primary-1 text-white px-11.5 py-2.5 text-btn-2 font-medium rounded-xs hover:opacity-90 transition cursor-pointer">
+                <button type="submit" className="bg-primary-1 text-white px-6 sm:px-11.5 py-2 sm:py-2.5 text-btn-2 font-medium rounded-xs hover:opacity-90 transition whitespace-nowrap">
                     Søg
                 </button>
                 </form>
